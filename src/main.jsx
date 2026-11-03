@@ -7,7 +7,7 @@ const LINKS = {
   github: 'https://github.com/SAM2K20ORG',
   linkedin: 'https://www.linkedin.com/in/samadshaik-engr/',
   instagram: 'https://www.instagram.com/samadshaik.llm/',
-  email: 'sam2k20irg.official@gmail.com',
+  email: 'sam2k20org.official@gmail.com',
   certificates: 'https://drive.google.com/drive/folders/1dJZnYwhd5kqSkSv7gFb5X3xxHzh_oXT6',
   portfolioRepo: 'https://github.com/SAM2K20ORG/samad-shaik-portfolio',
 };
