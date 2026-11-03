@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import avatar from './assets/samad-avatar.jpg';
-import codomaxCertificate from './assets/codomax-python-45-day-certificate.webp';
 import './styles.css';
 
 const LINKS = {
@@ -55,7 +54,6 @@ function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [copied, setCopied] = useState(false);
   const [activeFilter, setActiveFilter] = useState('ALL');
-  const [certificateOpen, setCertificateOpen] = useState(false);
 
   const visibleProjects = useMemo(
     () => activeFilter === 'ALL' ? projects : projects.filter((project) => project.category === activeFilter),
@@ -100,19 +98,13 @@ function App() {
     const onKeyDown = (event) => {
       if (event.key === 'Escape') {
         setMenuOpen(false);
-        setCertificateOpen(false);
       }
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
 
-  useEffect(() => {
-    if (!certificateOpen) return undefined;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = previous; };
-  }, [certificateOpen]);
+
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -196,11 +188,8 @@ function App() {
         </section>
 
         <section className="cert-section" id="certificates" aria-labelledby="certificates-title"><div className="section-wrap">
-          <div className="cert-heading reveal"><div><span className="section-number">04 / CERTIFICATIONS</span><h2 id="certificates-title">Proof of<br /><em>progress.</em></h2></div><p className="work-note">A verified record of completed learning and experience. Open a preview or browse the certificate collection.</p></div>
-          <article className="certificate-card reveal">
-            <button className="certificate-preview" type="button" onClick={() => setCertificateOpen(true)} aria-label="Preview Codomax Python Programming internship certificate"><img src={codomaxCertificate} alt="Codomax 45-day Python Programming internship certificate awarded to Samad Shaik" loading="lazy" /><span className="preview-overlay">VIEW CERTIFICATE <Arrow diagonal /></span></button>
-            <div className="certificate-info"><span className="project-type">INTERNSHIP · PYTHON PROGRAMMING</span><h3>45-Day Python Programming Internship</h3><p>Codomax Digital Solutions</p><dl><div><dt>Recipient</dt><dd>Samad Shaik</dd></div><div><dt>Duration</dt><dd>11 September – 25 October 2026</dd></div><div><dt>Issued</dt><dd>25 October 2026</dd></div><div><dt>Certificate ID</dt><dd>CDM/CERT/146300</dd></div></dl><div className="certificate-actions"><button type="button" className="button button-primary" onClick={() => setCertificateOpen(true)}>Preview certificate <Arrow diagonal /></button><a className="button button-secondary" href={LINKS.certificates} target="_blank" rel="noopener noreferrer">Open Drive collection <Arrow diagonal /></a></div><p className="certificate-note">The Drive link opens the shared certificate folder. Individual file-level Drive links can replace this collection link when available.</p></div>
-          </article>
+          <div className="cert-heading reveal"><div><span className="section-number">04 / CERTIFICATIONS</span><h2 id="certificates-title">Learning,<br /><em>documented.</em></h2></div><p className="work-note">Certificates and supporting documents are available in my Google Drive collection.</p></div>
+          <div className="cert-link-wrap reveal"><a className="button button-primary" href={LINKS.certificates} target="_blank" rel="noopener noreferrer">View certificates on Google Drive <Arrow diagonal /></a></div>
         </div></section>
 
         <section className="journey-section" id="journey" aria-labelledby="journey-title"><div className="section-wrap journey-inner">
@@ -213,13 +202,6 @@ function App() {
 
       <footer className="footer"><div className="section-wrap footer-inner"><a className="footer-brand" href="#home">SAMAD<span>.</span></a><span className="footer-note">DESIGNED WITH INTENTION. BUILT WITH CURIOSITY.</span><div className="footer-links"><a href={LINKS.github} target="_blank" rel="noopener noreferrer">GITHUB <Arrow diagonal /></a><a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer">LINKEDIN <Arrow diagonal /></a><a href={LINKS.instagram} target="_blank" rel="noopener noreferrer">INSTAGRAM <Arrow diagonal /></a><a href="#home" className="back-to-top">BACK TO TOP ↑</a></div><span className="copyright">© {new Date().getFullYear()} SAMAD SHAIK</span></div></footer>
 
-      {certificateOpen && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setCertificateOpen(false); }}>
-        <section className="certificate-modal" role="dialog" aria-modal="true" aria-labelledby="certificate-modal-title">
-          <div className="modal-header"><div><span className="project-type">CERTIFICATE PREVIEW</span><h2 id="certificate-modal-title">Python Programming Internship</h2></div><button type="button" className="modal-close" onClick={() => setCertificateOpen(false)} aria-label="Close certificate preview">×</button></div>
-          <img className="modal-certificate-image" src={codomaxCertificate} alt="Full Codomax 45-day Python Programming internship certificate for Samad Shaik" />
-          <div className="modal-actions"><a className="button button-primary" href={LINKS.certificates} target="_blank" rel="noopener noreferrer">Open Drive collection <Arrow diagonal /></a><button className="button button-secondary" type="button" onClick={() => setCertificateOpen(false)}>Close preview</button></div>
-        </section>
-      </div>}
     </>
   );
 }
