@@ -1,11 +1,22 @@
 # Samad Shaik — Personal Portfolio
 
-A custom dark-editorial portfolio built with React, Vite and plain CSS. It uses the supplied pixel-art avatar and a responsive, single-page layout.
+A responsive personal portfolio built with React and Vite. The visual direction is a dark editorial layout with warm typography, restrained lavender accents, and lightweight interactions.
 
-## Requirements
+## Features
 
-- Node.js 20.19+ or 22.12+
-- npm 10+
+- Responsive navigation with keyboard and mobile support
+- Scroll progress indicator and reveal-on-scroll sections
+- Filterable project collection
+- Skills grouped by area
+- Codomax Python Programming internship certificate preview modal
+- GitHub, LinkedIn, Instagram, email, and Google Drive certificate collection links
+- Reduced-motion support and visible keyboard focus states
+
+## Tech stack
+
+- React 19
+- Vite 7
+- CSS
 
 ## Run locally
 
@@ -14,8 +25,6 @@ npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite (usually `http://localhost:5173`).
-
 ## Production build
 
 ```bash
@@ -23,41 +32,17 @@ npm run build
 npm run preview
 ```
 
-The production-ready static site is generated in `dist/`.
+The production output is generated in `dist/`.
 
-## Current functionality
+## Deployment
 
-- Responsive navigation with an accessible mobile toggle and Escape-key dismissal.
-- Anchor navigation between all page sections.
-- Scroll progress indicator and reveal-on-scroll effects.
-- Reduced-motion support and keyboard-visible focus styles.
-- External GitHub profile links.
-- Responsive project, skills, education/experience and contact sections.
-- Page title, description, social preview metadata and custom favicon.
+This project is configured for Vercel's Vite preset. Use `npm run build` as the build command and `dist` as the output directory.
 
-## Before publishing
+## Portfolio links
 
-1. Add Samad's confirmed professional email in `EMAIL` near the top of `src/main.jsx`.
-2. Replace the sample project entries with real project details, repository URLs, demos and screenshots. Do not list work as completed until it is complete.
-3. Confirm the GitHub profile URL in `GITHUB_URL`.
-4. Add LinkedIn and other public profiles only after confirming their exact URLs.
-5. If adding a résumé, put the approved PDF in `public/` and add a visible download link.
-6. Replace the generic social preview metadata with a dedicated Open Graph image when one is ready.
+- GitHub: https://github.com/SAM2K20ORG
+- LinkedIn: https://www.linkedin.com/in/samadshaik-engr/
+- Instagram: https://www.instagram.com/samadshaik.llm/
+- Certificate collection: https://drive.google.com/drive/folders/1dJZnYwhd5kqSkSv7gFb5X3xxHzh_oXT6
 
-The avatar is stored at `src/assets/samad-avatar.jpg`. The favicon is `public/favicon.svg`.
-
-## Project structure
-
-```text
-samad-shaik-portfolio/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── assets/
-│   │   └── samad-avatar.jpg
-│   ├── main.jsx
-│   └── styles.css
-├── index.html
-├── package.json
-└── README.md
-```
+The resume download is intentionally omitted until a final PDF is supplied. The certificate card currently links to the shared Drive folder; an individual file link can be added when available.
